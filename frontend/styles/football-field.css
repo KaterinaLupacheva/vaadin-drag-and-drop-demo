@@ -1,0 +1,7 @@
+.football-field{
+    width: 380px;
+    height: 600px;
+    border: 2px solid black;
+    background: url("img/soccer-field.png") no-repeat center;
+    background-size: contain;
+}
