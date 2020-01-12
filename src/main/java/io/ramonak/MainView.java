@@ -1,13 +1,10 @@
 package io.ramonak;
 
-import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import io.ramonak.components.FootballField;
 import io.ramonak.components.PlayerCard;
 import io.ramonak.data.JuventusData;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
@@ -23,10 +20,20 @@ public class MainView extends HorizontalLayout {
         playersList.setSizeUndefined();
         playersList.addClassName("players-list");
 
+        FootballField footballField = new FootballField();
+
         JuventusData data = new JuventusData();
         data.getPlayers().forEach(player -> {
-            playersList.add(new PlayerCard(player));
+            PlayerCard playerCard = new PlayerCard(player);
+            playerCard.addDragStartListener(event ->
+                footballField.getPositions().forEach(position -> {
+                    if (position.isEmpty()) {
+                        position.addClassName("drop-target");
+                    }
+                }));
+            playersList.add(playerCard);
         });
-        add(playersList, new FootballField());
+
+        add(playersList, footballField);
     }
 }

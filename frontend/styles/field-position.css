@@ -1,0 +1,12 @@
+.field-position{
+     width: 30px;
+     height: 30px;
+     border-radius: 50%;
+     text-align: center;
+     vertical-align: center;
+     background-color: white;
+ }
+
+.drop-target {
+    border: 2px solid yellow;
+}
