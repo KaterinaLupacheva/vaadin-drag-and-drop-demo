@@ -10,3 +10,7 @@
 .drop-target {
     border: 2px solid yellow;
 }
+
+.v-drag-over-target.field-position{
+    background-color: deeppink;
+}

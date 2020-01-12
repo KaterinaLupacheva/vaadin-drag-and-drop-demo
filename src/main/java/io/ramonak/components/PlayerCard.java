@@ -2,6 +2,7 @@ package io.ramonak.components;
 
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dnd.DragSource;
+import com.vaadin.flow.component.dnd.EffectAllowed;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import io.ramonak.data.Player;
@@ -20,5 +21,6 @@ public class PlayerCard extends HorizontalLayout implements DragSource<PlayerCar
         add(number, position, name);
         setDraggable(true);
         setDragData(number.getText());
+        setEffectAllowed(EffectAllowed.MOVE);
     }
 }
